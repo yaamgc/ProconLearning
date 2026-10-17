@@ -11,11 +11,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
 
         <App />
-        <Routes>
-          <Route path='/' element={<Top />} />
-          <Route path='/menu' element={<HtmlMenu />} />
-          <Route path='/:course/:id' element={<Slide />} />
-        </Routes>
+
     </BrowserRouter>
   </StrictMode>,
 )
