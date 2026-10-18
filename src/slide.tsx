@@ -4,7 +4,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import "highlight.js/styles/github-dark.css";
 import { Link, useParams } from 'react-router';
-const markdownFiles = import.meta.glob("./slides/html/*.md",{
+const markdownFiles = import.meta.glob("./slides/*/*.md",{
   query: "?raw",
   import: "default",
   eager: true,
@@ -34,7 +34,7 @@ export default function Slide(){
           page!==totalPages ?
           <button className='m-2 bg-green-500 text-white rounded-xl p-2 mb-5' onClick={()=>setPage(page+1)}>次に進む</button>
           :
-          <Link to='/menu'>
+          <Link to={`/${course}`}>
           <button className='m-2 bg-blue-400 text-white rounded-xl p-2 mb-5'>終了する</button>
           </Link>
         }

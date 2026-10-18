@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, query, where, type DocumentData } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where, type DocumentData } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { db } from "./firebase";
@@ -17,13 +17,19 @@ export default function Works() {
             );
             const snapshot = await getDocs(q);
             setWorks(
-                snapshot.docs.map(doc => doc.data())
+                snapshot.docs.map(doc => (
+                    {
+                        docId:doc.id,
+                        ...doc.data()
+                    }
+                ))
             );
         }
         getWorks();
     }, []);
 
     const [url,setUrl] = useState("");
+    const [github,setGithub] = useState("");
     const [detail,setDetail] = useState("");
 
     const submitWork = async() => {
@@ -32,9 +38,22 @@ export default function Works() {
                 id: id,
                 name: nickname,
                 url: url,
+                github:github,
                 detail :detail
             }
         )
+        setUrl("");
+        setDetail("");
+        alert("送信完了！");
+        window.location.reload();
+    }
+
+    const deleteWork = async (docID: string) => {
+        await deleteDoc(
+            doc(db,"works",docID)
+        );
+        alert("削除完了！");
+        window.location.reload();
     }
 
     //001とか
@@ -43,6 +62,7 @@ export default function Works() {
             <div className="prose text-xl markdown-content mt-10 w-max-100 w-[80%] mb-10 p-5 pr-10 pl-10 bg-white rounded-xl m-auto">
                 <h2>完成品を共有する</h2>
                 <input type="text" onChange={(e)=>setUrl(e.target.value)} value={url} placeholder="作品URL" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
+                <input type="text" onChange={(e)=>setGithub(e.target.value)} value={github} placeholder="Githubリンク" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
                 <input type="text" onChange={(e)=>setDetail(e.target.value)} value={detail} placeholder="説明" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
                 <button onClick={submitWork} className="bg-red-500  text-white rounded-xl p-1 w-20 ml-7 m-2">共有</button>
             </div>
@@ -52,11 +72,12 @@ export default function Works() {
                     works.map((work, index) => (
                         <div className="bg-slate-50 rounded-xl p-2 m-2">
                             <p>作品URL：<a href={work.url}>{work.url}</a></p>
+                            <p>github：<a href={work.github}>{work.github}</a></p>
                             <p>{work.name} 作</p>
                             <p>説明：{work.detail}</p>
                             {
                                 nickname === work.name && (
-                                <button className="bg-red-500 text-white w-20 rounded-xl ml-7">削除</button>
+                                <button onClick={()=>deleteWork(work.docId)} className="bg-red-500 text-white w-20 rounded-xl ml-7">削除</button>
                                 )
                             }
                         </div>

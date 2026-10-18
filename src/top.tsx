@@ -11,7 +11,7 @@ export default function Top() {
     <div className="w-[80%] max-w-230 m-auto text-center">
 
       <div className="grid grid-cols-3">
-        <Link to='/menu'>
+        <Link to='/aboutme'>
         <div className="grid-item bg-yellow-400 rounded-xl p-2 m-2">
           <h1 className="bg-black rounded-[7px] text-yellow-400 font-bold text-4xl h-25 pt-6">&lt;h1&gt;</h1>
           <h1 className="text-3xl font-bold text-white m-2">HTML講座</h1>

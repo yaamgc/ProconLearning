@@ -3,12 +3,13 @@ import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router";
 import { auth, db } from "./firebase";
 import Login from "./Login";
-import HtmlMenu from "./htmlMenu";
+import HtmlMenu from "./AboutMe";
 import Slide from "./slide";
 import Top from "./top";
 import { doc, getDoc } from "firebase/firestore";
 import Works from "./works";
 import { UserContext } from "./UserContext";
+import AboutMe from "./AboutMe";
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -58,7 +59,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<Top />} />
                 <Route path='/works/:id' element={<Works />} />
-                <Route path='/menu' element={<HtmlMenu />} />
+                <Route path='/aboutme' element={<AboutMe />} />
                 <Route path='/:course/:id' element={<Slide />} />
             </Routes>
         </UserContext.Provider>
