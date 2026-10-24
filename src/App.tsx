@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router";
 import { auth, db } from "./firebase";
 import Login from "./Login";
-import HtmlMenu from "./AboutMe";
 import Slide from "./slide";
 import Top from "./top";
 import { doc, getDoc } from "firebase/firestore";
