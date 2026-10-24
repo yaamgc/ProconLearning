@@ -22,6 +22,7 @@ export default function Slide(){
   }
   return (
     <div className="prose text-xl markdown-content mt-10 w-max-100 w-[80%] mb-10 p-5 pr-15 bg-white rounded-xl m-auto">
+      <title>PROGYM | SLIDES</title>
       <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight]}>{markdown}</ReactMarkdown>
       <div className="mt-4 flex justify-center">
         {
