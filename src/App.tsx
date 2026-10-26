@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 import Works from "./works";
 import { UserContext } from "./UserContext";
 import AboutMe from "./AboutMe";
+import Quiz1 from "./quiz";
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState<User | null>(null);

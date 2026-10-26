@@ -81,7 +81,7 @@ export default function Works() {
         <>
             <title>PROGYM | WORKS</title>
             <div className="prose text-xl markdown-content mt-10 w-max-100 w-[80%] mb-10 p-5 pr-10 pl-10 bg-white rounded-xl m-auto">
-                <h2>完成品を共有する</h2>
+                <h2>作品（完成品やアレンジ品）を共有</h2>
                 <input type="text" onChange={(e)=>setUrl(e.target.value)} value={url} placeholder="作品URL" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
                 <input type="text" onChange={(e)=>setGithub(e.target.value)} value={github} placeholder="Githubリンク" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
                 <input type="text" onChange={(e)=>setDetail(e.target.value)} value={detail} placeholder="説明（任意）" className="border-2 border-gray-200 p-2 rounded-xl w-[92%] block mx-auto m-3" />
