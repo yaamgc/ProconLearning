@@ -1,8 +1,4 @@
-import type { map } from "firebase/firestore/pipelines";
 import { useState } from "react";
-import {
-  Link,
-} from "react-router";
 
   type Quiz = {
     question: string;
