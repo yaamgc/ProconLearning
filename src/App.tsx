@@ -9,6 +9,7 @@ import { doc, getDoc } from "firebase/firestore";
 import Works from "./works";
 import { UserContext } from "./UserContext";
 import AboutMe from "./AboutMe";
+import Github from "./Github";
 
 export default function App() {
     const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -59,6 +60,8 @@ export default function App() {
                 <Route path='/' element={<Top />} />
                 <Route path='/works/:id' element={<Works />} />
                 <Route path='/aboutme' element={<AboutMe />} />
+                <Route path='/github' element={<Github />} />
+
                 <Route path='/:course/:id' element={<Slide />} />
             </Routes>
         </UserContext.Provider>

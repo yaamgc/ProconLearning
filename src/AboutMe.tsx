@@ -21,11 +21,11 @@ export default function AboutMe() {
       option3: "leg",
       answer: 1,
     }, {
-      question: "HTMLで一番大きい見出しは？",
-      option1: "h1",
-      option2: "h6",
-      option3: "p",
-      answer: 1,
+      question: "余白を指定するプロパティとして不適切なものは？",
+      option1: "padding",
+      option2: "margin",
+      option3: "height",
+      answer: 3,
     },
 
   ];
